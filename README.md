@@ -1,3 +1,15 @@
+# keensoft fork
+## Screenshots
+![Home Screen](./resources/screenshot-home.png)
+![News Screen](./resources/screenshot-news.png)
+
+## Hack
+App connect with 2 feed sources and display content. User can open external native window to view complete post.
+
+App uses IONIC split-pane, doing responsive layout! 
+![News Screen - Split](./resources/screenshot-split.png)
+
+
 # Polyonic v0.0.4
 
 ## The ultimate "Universal App"

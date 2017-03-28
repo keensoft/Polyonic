@@ -16,7 +16,6 @@
   const debug = require('debug')('express-test:server')
   const http = require('http')
   const port = process.env.PORT || '3000'
-
   let server
 
   function onListening () {
@@ -27,6 +26,17 @@
     debug('Listening on ' + bind)
 
     mainWindow.loadURL('http://127.0.0.1:3000')
+
+    mainWindow.webContents.executeJavaScript("" +
+      "var path = require('path');" +
+      "module.paths.push(path.resolve('node_modules'));" +
+      "module.paths.push(path.resolve('../node_modules'));" +
+      "module.paths.push(path.resolve(__dirname, '..', '..', 'electron', 'node_modules'));" +
+      "module.paths.push(path.resolve(__dirname, '..', '..', 'electron.asar', 'node_modules'));" +
+      "module.paths.push(path.resolve(__dirname, '..', '..', 'app', 'node_modules'));" +
+      "module.paths.push(path.resolve(__dirname, '..', '..', 'app.asar', 'node_modules'));" +
+      "path = undefined;"
+  );
 
         // Use Electron Connect when developing for live reloading, and show the devtools
     if (process.env.NODE_ENV === 'development') {
@@ -75,4 +85,3 @@
     })
   })
 }())
-// # sourceMappingURL=app.js.map

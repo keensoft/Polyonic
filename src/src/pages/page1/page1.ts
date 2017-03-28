@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { Device, AppVersion } from 'ionic-native';
-import { NavController, Platform } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {Device, AppVersion} from 'ionic-native';
+import {NavController, Platform} from 'ionic-angular';
 
 declare var window;
 
@@ -9,28 +9,32 @@ declare var window;
   templateUrl: 'page1.html'
 })
 export class Page1 {
-  public version: any = '';
-  public dplatform: any = '';
-  public deviceModel: any = '';
+  public version:any = '';
+  public dplatform:any = '';
+  public deviceModel:any = '';
 
-  public appVersion: any = '';
-  public appName: any = '';
-  public appPackageName: any = '';
-  public appVersionCode: any = '';
+  public appVersion:any = '';
+  public appName:any = '';
+  public appPackageName:any = '';
+  public appVersionCode:any = '';
 
-  constructor(public navCtrl: NavController, public platform: Platform) {
-    var pltReady = this.platform.ready(); 
+  constructor(public navCtrl:NavController, public platform:Platform) {
+    var pltReady = this.platform.ready();
 
     pltReady.then((readySource) => {
       this.ready();
     });
 
     // Temporary
-    if(!window.isCordovaApp) {
+    if (!window.isCordovaApp) {
       this.ready();
     }
   }
-  
+
+  public openArticle(url:string) {
+    window.open(url, '_blank');
+  }
+
   ready() {
 
     console.log('Device from app: ', Device);
