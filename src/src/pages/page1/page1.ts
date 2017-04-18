@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import {Component} from '@angular/core';
 import {Device, AppVersion} from 'ionic-native';
 import {NavController, Platform} from 'ionic-angular';
+=======
+import { Component } from '@angular/core';
+import { Device, AppVersion, Clipboard } from 'ionic-native';
+import { NavController, Platform } from 'ionic-angular';
+>>>>>>> master-poly
 
 declare var window;
 
@@ -18,8 +24,16 @@ export class Page1 {
   public appPackageName:any = '';
   public appVersionCode:any = '';
 
+<<<<<<< HEAD
   constructor(public navCtrl:NavController, public platform:Platform) {
     var pltReady = this.platform.ready();
+=======
+  public clipboardCopy: string = 'COPY ME';
+  public clipboardPaste: string = '';
+
+  constructor(public navCtrl: NavController, public platform: Platform) {
+    var pltReady = this.platform.ready(); 
+>>>>>>> master-poly
 
     pltReady.then((readySource) => {
       this.ready();
@@ -72,4 +86,13 @@ export class Page1 {
     })
   }
 
+  copy() {
+    Clipboard.copy(this.clipboardCopy);
+  }
+
+  paste() {
+    Clipboard.paste().then((text) => {
+      this.clipboardPaste = text;
+    });
+  }
 }
