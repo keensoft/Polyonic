@@ -1,5 +1,7 @@
-<<<<<<< HEAD
 # keensoft fork
+## Downloads
+[Mac OS X](./bin/keensoft-darwin-x64.zip)
+[Windows](./bin/keensoft-win32-x64.zip)
 ## Screenshots
 ![Home Screen](./resources/screenshot-home.png)
 ![News Screen](./resources/screenshot-news.png)
@@ -10,11 +12,7 @@ App connect with 2 feed sources and display content. User can open external nati
 App uses IONIC split-pane, doing responsive layout! 
 ![News Screen - Split](./resources/screenshot-split.png)
 
-
-# Polyonic v0.0.4
-=======
 # Polyonic v0.3.0
->>>>>>> master-poly
 
 ## The ultimate "Universal App"
 

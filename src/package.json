@@ -64,5 +64,5 @@
   ],
   "description": "keensoft: Feed Reader",
   "main": "app.js",
-  "copyright":"2017, keensoft"
+  "copyright": "2017, keensoft"
 }

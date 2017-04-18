@@ -7,19 +7,6 @@
   const client = require('electron-connect').client;
   const config = require('./polyonic.config');
 
-<<<<<<< HEAD
-  const express = require('express')
-  const path = require('path')
-  const logger = require('morgan')
-  const cookieParser = require('cookie-parser')
-  const bodyParser = require('body-parser')
-  const skipMap = require('skip-map')
-  const expressApp = express()
-  const debug = require('debug')('express-test:server')
-  const http = require('http')
-  const port = process.env.PORT || '3000'
-  let server
-=======
   const express = require('express');
   const path = require('path');
   const logger = require('morgan');
@@ -32,7 +19,6 @@
   const port = process.env.PORT || '3000';
 
   let server;
->>>>>>> master-poly
 
   function onListening () {
     let addr = server.address();
@@ -43,32 +29,17 @@
 
     mainWindow.loadURL('http://127.0.0.1:3000');
 
-    mainWindow.webContents.executeJavaScript("" +
-      "var path = require('path');" +
-      "module.paths.push(path.resolve('node_modules'));" +
-      "module.paths.push(path.resolve('../node_modules'));" +
-      "module.paths.push(path.resolve(__dirname, '..', '..', 'electron', 'node_modules'));" +
-      "module.paths.push(path.resolve(__dirname, '..', '..', 'electron.asar', 'node_modules'));" +
-      "module.paths.push(path.resolve(__dirname, '..', '..', 'app', 'node_modules'));" +
-      "module.paths.push(path.resolve(__dirname, '..', '..', 'app.asar', 'node_modules'));" +
-      "path = undefined;"
-  );
-
         // Use Electron Connect when developing for live reloading, and show the devtools
     if (process.env.NODE_ENV === 'development') {
-      mainWindow.openDevTools();
+      mainWindow.toggleDevTools();
       client.create(mainWindow);
     };
-
-    if(config.debug.devTools) {
-      mainWindow.openDevTools();
-    }
   }
 
   let mainWindow = null;
 
   app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin' || config.platform.macos.autoClose === true) {
+    if (process.platform !== 'darwin') {
       app.quit();
     }
   });
@@ -79,10 +50,8 @@
       webPreferences: {
         nodeIntegration: true
       },
-      width: config.windows.default.width,
-      height: config.windows.default.height,
-      fullscreen: config.windows.default.fullscreen,
-      resizable: config.windows.default.resizeable
+      width: 1200,
+      height: 900
     });
 
     expressApp.use(skipMap());
@@ -102,16 +71,8 @@
     server.on('listening', onListening);
 
     mainWindow.on('closed', function () {
-<<<<<<< HEAD
-      mainWindow = null
-      server.close()
-    })
-  })
-}())
-=======
       mainWindow = null;
       server.close();
     });
   });
 }());
->>>>>>> master-poly
